@@ -3,7 +3,19 @@ const app = express();
 const cors = require('cors');
 
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+	origin: [
+		'http://localhost:3000',
+		'http://localhost:3500',
+		'https://jasontoups.github.io',
+		'http://jasontoups.github.io',
+	],
+	credentials: true,
+	optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const port = 3500;
 
